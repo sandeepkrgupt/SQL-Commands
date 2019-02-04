@@ -1,0 +1,14 @@
+SQL Commands :-
+
+select * from logical_date where expiration_date is null;
+
+update logical_date set logical_date = '10-JAN-2019' where expiration_date is null;
+
+
+select * from rm1_resource where resource_type_id=4 and resource_status='AVAILABLE'; 
+
+Insert into ORD9_EQUIPMENT_SIMULATOR(SERIAL_NUMBER, BLACKLISTED, ITEM_ID, ITEMID_STATUS, ITEMID_STATUS_DESC, MAKE, MODEL) Values ('028983024007750001', 'N', 'BYODAPIPHNSE', '001', 'Inventory Available to Order and Ship', 'Apple', 'Apple iPhone SE BYOD');
+
+
+
+select pp.ap_id, pp.ap_version_id, pp.billing_id, pp.item_def_id, pp.state, pp.status, tbn.name_text from tbap_price_plan pp, tbname tbn where order_action_id in (select order_unit_id from tborder_action where customer_id = '100000049') and pp.item_def_id = tbn.cid and pp.state <> 'CA'; 
