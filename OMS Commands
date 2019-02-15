@@ -1,0 +1,99 @@
+To find sever details hit below command in putty of that Env
+
+tnsping USCDB2101
+WHERE 2101 IS ENV SO YOU NEED TO CHANGE WITH YOURS
+
+Who is debugging in Oms :-
+netstat -a | grep 40102 , where 40102 is port number
+
+For SIM Number
+
+select * from rm1_resource where resource_type_id=4 and resource_status='AVAILABLE'; 
+
+
+
+
+
+select SERIAL_NUMBER from ORD9_EQUIPMENT_SIMULATOR; 
+
+OMS1OMSOWN  IN THIS db YOU CAN INSERT
+
+
+Insert into ORD9_EQUIPMENT_SIMULATOR(SERIAL_NUMBER, BLACKLISTED, ITEM_ID, ITEMID_STATUS, ITEMID_STATUS_DESC, MAKE, MODEL) Values ('028983024007778676', 'N', 'BYODAPIPHNSE', '001', 'Inventory Available to Order and Ship', 'Apple', 'Apple iPhone SE BYOD');
+
+SELECT * FROM ORD9_EQUIPMENT_SIMULATOR WHERE SERIAL_NUMBER = '028983024007778676'; 
+
+
+SIM NUMER :
+select resource_value from rm1_resource where resource_type_id='4' and resource_status='AVAILABLE' order by sys_creation_date desc; 
+
+
+
+
+Finding Files From Rim Resource ********
+
+RIMResources.pro...
+
+# Strings from: com.abc.retail.components.AppBottomBar.mxml
+AppBottomBar_id_Exclusive_of_Tax=(Exclusive of taxes)
+AppBottomBar_Label_EIP_Promotion=EIP Promotion
+AppBottomBar_Label_Credit_Promo=Promotions 
+===\
+# Strings from: com\abc\retail\view\headerinfo\plan\X9Promotions.mxml
+X9Promotions_text_promo_code=Code
+X9Promotions_text_promo_name=Name
+X9Promotions_text_promo_last_update_date=Last Update Date
+X9Promotions_label_text_assigned_promotions=Assigned Promotions
+
+
+-----------------------------------
+#com\abc\retail\view\payment\X9SelectCreditPromotionPopup
+X9SelectCreditPromotionPopupImpl_screen_title=Promotions
+X9SelectCreditPromotionPopupImpl_mdn_selection_text=MDN Selection
+
+-----------------------------------
+CommandFactory.execute("IntfX9SetCreditPromotionsCmd", cmd,x9SetCreditPromotionsCmdSuccessHandler,null,x9SetCreditPromotionsCmdFaultHandler,null); 
+command in backend
+-----------------------------------------------
+servicemapping.xml => here you will find the mapping between client command and server command
+
+-------------------------------------------
+Insert into ORD9_EQUIPMENT_SIMULATOR(SERIAL_NUMBER, BLACKLISTED, ITEM_ID, ITEMID_STATUS, ITEMID_STATUS_DESC, MAKE, MODEL) Values ('028983024007778680', 'N', '190256', '001', 'Inventory Available to Order and Ship', 'Apple', 'Apple iPhone SE BYOD');
+
+------------------------------------------
+
+SELECT * FROM ORD9_EQUIPMENT_SIMULATOR WHERE SERIAL_NUMBER = '028983024007778680'; 
+190256  ; LTE
+ADD UICC : SIM
+
+-------------------------OMS LOGS ---------------------
+illnqw2095:[7]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsv
+shift+g
+?file_name or running for checking oms is running.
+
+
+
+------------------Selecting fields according to Order_Id  (OMS DB)----------------------------------------------
+select * from tborder_action where order_id = 7059
+
+
+--------------------------Select Row Using like operator (OMS DB)----------------------------------------------
+select metadata from aif_operation where name like '%updateVirtualPromoCard%';
+
+
+------------- see who is debugging OMS --------------------------------
+illnqw2694:[4]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>netstat -a |grep -i 40102 (where 40102 is port number)
+
+
+--------------------- updating only one row in OMS ---------------------------------------------------------------
+select * from x_tbcampaign;
+update x_tbcampaign set SOURCE_CODE='abc' where CAMPAIGN_ID = '85' and customer_id = '100000051';
+update x_tbcampaign set url= null where CAMPAIGN_ID = '85' and customer_id = '100000051';
+
+-------------- Restarting OMS ----
+illnqw2095:[1]/users/gen/omswrk1/>omsp - to check oms is up/down
+illnqw2095:[1]/users/gen/omswrk1/>omsk - kill oms 
+illnqw2095:[1]/users/gen/omswrk1/>omsc - clean cache
+illnqw2095:[1]/users/gen/omswrk1/>omsr - restart oms
+
+illnqw2095:[1]/users/gen/omswrk1/>omst - trail/track oms logs
